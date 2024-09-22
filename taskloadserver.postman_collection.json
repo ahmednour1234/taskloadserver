@@ -1,0 +1,566 @@
+{
+	"info": {
+		"_postman_id": "8d0a1b41-a57b-4563-8c11-afb07291906d",
+		"name": "taskloadserver",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24728871",
+		"_collection_link": "https://restless-space-198248.postman.co/workspace/taskloadserver~b31ccea7-f4b2-44d0-a16e-99aed1b00ae6/collection/24728871-8d0a1b41-a57b-4563-8c11-afb07291906d?action=share&source=collection_link&creator=24728871"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "ahmed nour",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ahmednour59990@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ahmed1234",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "employee",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}register",
+							"host": [
+								"{{base_url}}register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "ahmednour59990@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ahmed1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}login",
+							"host": [
+								"{{base_url}}login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}logout",
+							"host": [
+								"{{base_url}}logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "show all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}customers",
+							"host": [
+								"{{base_url}}customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show one customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}customers/4",
+							"host": [
+								"{{base_url}}customers"
+							],
+							"path": [
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "ahmed",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ahmednour59199@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01288817121",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "sidibeshr",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}customers",
+							"host": [
+								"{{base_url}}customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "name",
+								"value": "mohamed",
+								"type": "text"
+							},
+							{
+								"key": "email",
+								"value": "ahmednour5999@gmail.com",
+								"type": "text"
+							},
+							{
+								"key": "phone",
+								"value": "0122814646",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"mohamed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}customers/4",
+							"host": [
+								"{{base_url}}customers"
+							],
+							"path": [
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}customers/1",
+							"host": [
+								"{{base_url}}customers"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "invoices",
+			"item": [
+				{
+					"name": "show all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}invoices",
+							"host": [
+								"{{base_url}}invoices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show one invoice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}invoices/8",
+							"host": [
+								"{{base_url}}invoices"
+							],
+							"path": [
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store invoice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|KxvZAAx0el7evlgyoRe7lmyaSXGCN7pMpKGGfPvZe05334db",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "customer_id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "500",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2024-09-05",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "tm",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}invoices",
+							"host": [
+								"{{base_url}}invoices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update invoice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|KxvZAAx0el7evlgyoRe7lmyaSXGCN7pMpKGGfPvZe05334db",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\":\"300\",\r\n    \"date\":\"2023-8-1\",\r\n    \"description\":\"dsaas\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}invoices/invoices/8",
+							"host": [
+								"{{base_url}}invoices"
+							],
+							"path": [
+								"invoices",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete invoice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|KxvZAAx0el7evlgyoRe7lmyaSXGCN7pMpKGGfPvZe05334db",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}invoices/invoices/10",
+							"host": [
+								"{{base_url}}invoices"
+							],
+							"path": [
+								"invoices",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchInvoices",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|KxvZAAx0el7evlgyoRe7lmyaSXGCN7pMpKGGfPvZe05334db",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}searchInvoices?customer_name=ahmed",
+							"host": [
+								"{{base_url}}searchInvoices"
+							],
+							"query": [
+								{
+									"key": "customer_name",
+									"value": "ahmed"
+								},
+								{
+									"key": "phone",
+									"value": "012",
+									"disabled": true
+								},
+								{
+									"key": "invoice_date",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LOGS",
+			"item": [
+				{
+					"name": "showLogs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|fa2PrnYtxYsjO2G9x7DDxLuWthKnI06xJd7SMxXTf52a07d1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}showLogs",
+							"host": [
+								"{{base_url}}showLogs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000/api/",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "2|KxvZAAx0el7evlgyoRe7lmyaSXGCN7pMpKGGfPvZe05334db",
+			"type": "string"
+		}
+	]
+}
