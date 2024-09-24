@@ -18,4 +18,10 @@ class Log extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+    public function customer(){
+        return $this->belongsTo(Customer::class);
+    }
+    public function invoice(){
+        return $this->belongsTo(Invoice::class);
+    }
 }
